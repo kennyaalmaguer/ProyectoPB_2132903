@@ -1,4 +1,4 @@
-#include <iostream>
+include <iostream>
 #include <conio.h>
 #include <string.h>
 #include <string>
@@ -14,8 +14,8 @@ using namespace std;
 
 struct datos
 {
-    int  nart,  year, unidades;
-    float total, precio,impuesto;
+    int  nart, year, unidades;
+    float total, precio, impuesto;
     string articulo, descripcion, genero, clasificacion, consola, status, caracteristicas;
 };
 
@@ -37,89 +37,89 @@ int main()
 {
     int opcion;
 
-    
-        printf("\n\t%c BIENVENIDO A MEGAPLANET %c",1,1);
-        printf("\n\t %c%c%c MEN%c DE OPCIONES %c%c%c\n", 16, 16, 16, 233, 17, 17, 17);
-        printf("\n\t1-Alta de Art%cculos\n",161);
-        printf("\t2-Modificaci%cn de Art%culos\n",162,161);
-        printf("\t3-Baja de Art%cculos\n",161);
-        printf("\t4-Lista de Art%cculos\n",161);
-        printf("\t5-Limpiar Pantalla\n");
-        printf("\t6-Salir\n");
-        printf("\nEscoga una opci%cn....\t", 162);
-        scanf_s("%d", &opcion);
 
-        switch (opcion)
-        {
-        case 1: //ALTA
-            Alta();
-            return main();
-            break;
+    printf("\n\t%c BIENVENIDO A MEGAPLANET %c", 1, 1);
+    printf("\n\t %c%c%c MEN%c DE OPCIONES %c%c%c\n", 16, 16, 16, 233, 17, 17, 17);
+    printf("\n\t1-Alta de Art%cculos\n", 161);
+    printf("\t2-Modificaci%cn de Art%culos\n", 162, 161);
+    printf("\t3-Baja de Art%cculos\n", 161);
+    printf("\t4-Lista de Art%cculos\n", 161);
+    printf("\t5-Limpiar Pantalla\n");
+    printf("\t6-Salir\n");
+    printf("\nEscoga una opci%cn....\t", 162);
+    scanf_s("%d", &opcion);
 
-        case 2://MODIFICAR
-            modificar();
-            return main();
-            break;
+    switch (opcion)
+    {
+    case 1: //ALTA
+        Alta();
+        return main();
+        break;
 
-        case 3:
-            eliminar();
-            return main();
-            break;
+    case 2://MODIFICAR
+        modificar();
+        return main();
+        break;
 
-        case 4://LISTA
-            listas();
-            return main();
-            break;
+    case 3:
+        eliminar();
+        return main();
+        break;
 
-        case 5:
-            system("cls"); // LIMPIAR PANTALLA
-            return main();
-            break;
-        case 6:
-            archivos();
-            //exit(1); //CIERRA PANTALLA
-            break;
-        default:
-            printf("\n%cIngrese opci%cn v%clida%c\n", 16, 162, 160, 17);
-            return main();
-            break;
+    case 4://LISTA
+        listas();
+        return main();
+        break;
 
-        }
-  
+    case 5:
+        system("cls"); // LIMPIAR PANTALLA
+        return main();
+        break;
+    case 6:
+        archivos();
+        //exit(1); //CIERRA PANTALLA
+        break;
+    default:
+        printf("\n%cIngrese opci%cn v%clida%c\n", 16, 162, 160, 17);
+        return main();
+        break;
+
+    }
+
 }
 
 void Alta()
 {
-     
 
-    printf("\n%cCu%cntos registros desea dar de alta%c\n",168,160,63);
+
+    printf("\n%cCu%cntos registros desea dar de alta%c\n", 168, 160, 63);
     scanf_s("%d", &alta);
-    
+
     tienda = new datos[alta];
 
-    int nua; 
+    int nua;
     bool k;
 
     for (int i = 0; i < alta; i++)
     {
-        int l = i + 1; 
+        int l = i + 1;
 
-        printf("\n\nART%cCULO %d\n",214,l);
+        printf("\n\nART%cCULO %d\n", 214, l);
 
         do {
 
-            printf("\nIngrese n%cmero de art%cculo: ",163,161);
+            printf("\nIngrese n%cmero de art%cculo: ", 163, 161);
             scanf_s("%d", &nua);
 
             validacion(nua, k);
-        
-        } while(k);
-    
+
+        } while (k);
+
         tienda[i].nart = nua;
-            
+
         while (getchar() != '\n');//se vacia el buffer o el espacio
 
-        printf("\nIngrese nombre de art%cculo: ",161);
+        printf("\nIngrese nombre de art%cculo: ", 161);
         getline(cin, tienda[i].articulo);
 
         do
@@ -127,35 +127,35 @@ void Alta()
             printf("\nIngrese el a%co de lanzamiento: ", 164);
             scanf_s("%d", &tienda[i].year);
 
-            if(tienda[i].year < 1970 || tienda[i].year>2024)
+            if (tienda[i].year < 1970 || tienda[i].year>2024)
             {
-                printf("\n%cFavor de ingresar un a%co que este entre 1970-2024%c\n", 16,164,17);
+                printf("\n%cFavor de ingresar un a%co que este entre 1970-2024%c\n", 16, 164, 17);
             }
 
         } while (tienda[i].year < 1970 || tienda[i].year>2024);
-        
+
 
         while (getchar() != '\n');
 
-        printf("\nIngrese descripci%cn de art%cculo: ",162,161);
+        printf("\nIngrese descripci%cn de art%cculo: ", 162, 161);
         getline(cin, tienda[i].descripcion);
 
-        printf("\nIngrese g%cnero de art%cculo: ",130,161);
+        printf("\nIngrese g%cnero de art%cculo: ", 130, 161);
         getline(cin, tienda[i].genero);
 
-        printf("\nIngrese clasificaci%cn del art%cculo: ",162,161);
+        printf("\nIngrese clasificaci%cn del art%cculo: ", 162, 161);
         getline(cin, tienda[i].clasificacion);
 
-        printf("\nIngrese caracter%csticas del art%cculo: ",161,161);
+        printf("\nIngrese caracter%csticas del art%cculo: ", 161, 161);
         getline(cin, tienda[i].caracteristicas);
 
-        printf("\nIngrese consola del art%cculo: ",161);
+        printf("\nIngrese consola del art%cculo: ", 161);
         getline(cin, tienda[i].consola);
 
-        printf("\nIngrese n%cmero de unidades del art%cculo: ",163,161);
+        printf("\nIngrese n%cmero de unidades del art%cculo: ", 163, 161);
         scanf_s("%d", &tienda[i].unidades);
 
-        printf("\nIngrese precio de art%cculo: ",161);
+        printf("\nIngrese precio de art%cculo: ", 161);
         scanf_s("%f", &tienda[i].precio);
 
         tienda[i].total = tienda[i].precio * 1.16;
@@ -277,7 +277,7 @@ void listas()
                 break;
 
             default:
-                printf("\n%cIngrese opci%cn v%clida%c\n", 16,162, 160,17);
+                printf("\n%cIngrese opci%cn v%clida%c\n", 16, 162, 160, 17);
                 return listas();
                 break;
             }
@@ -293,7 +293,7 @@ void modificar()
     int j, opcion, op2;
     do
     {
-        printf("\nIngrese el n%cmero registro a modificar:",163);
+        printf("\nIngrese el n%cmero registro a modificar:", 163);
         scanf_s("%d", &j);
 
 
@@ -306,7 +306,7 @@ void modificar()
             if ((tienda[i].status == "ELIMINADO"))
             {
                 printf("REGISTRO %d ELIMINADO\n", l);
-                printf("Ingrese un registro v%clido \n",160);
+                printf("Ingrese un registro v%clido \n", 160);
                 op2 = 1;
             }
             else
@@ -315,7 +315,7 @@ void modificar()
             }
         }
     } while (op2 == 1);
-    printf("\n%cQu%c que desea modificar%c\n1-Nombre\n2-A%co\n3-Descripci%cn\n4-G%cnero\n5-Clasificaci%cn\n6-Caracter%csticas\n7-Consola\n8-Unidades\n9-Precio\n",168,130,63,164,162,130,162,161);
+    printf("\n%cQu%c que desea modificar%c\n1-Nombre\n2-A%co\n3-Descripci%cn\n4-G%cnero\n5-Clasificaci%cn\n6-Caracter%csticas\n7-Consola\n8-Unidades\n9-Precio\n", 168, 130, 63, 164, 162, 130, 162, 161);
     scanf_s("%d", &opcion);
 
     switch (opcion)
@@ -330,7 +330,7 @@ void modificar()
         break;
 
     case 2:
-        for  (int i = j; i == j; i++)
+        for (int i = j; i == j; i++)
         {
             do
             {
@@ -346,10 +346,10 @@ void modificar()
         break;
 
     case 3:
-        for  (int i = j; i == j; i++)
+        for (int i = j; i == j; i++)
         {
             while (getchar() != '\n'); //se vacia el buffer o el espacio
-            printf("Ingrese descripci%cn:",162);
+            printf("Ingrese descripci%cn:", 162);
             getline(cin, tienda[i].descripcion);
         }
 
@@ -358,7 +358,7 @@ void modificar()
         for (int i = j; i == j; i++)
         {
             while (getchar() != '\n');//se vacia el buffer o el espacio
-            printf("Ingrese g%cnero:",130);
+            printf("Ingrese g%cnero:", 130);
             getline(cin, tienda[i].genero);
         }
         break;
@@ -366,15 +366,15 @@ void modificar()
         for (int i = j; i == j; i++)
         {
             while (getchar() != '\n'); //se vacia el buffer o el espacio
-            printf("Ingrese clasificaci%cn:",162);
+            printf("Ingrese clasificaci%cn:", 162);
             getline(cin, tienda[i].clasificacion);
         }
         break;
     case 6:
         for (int i = j; i == j; i++)
         {
-            while(getchar() != '\n'); //se vacia el buffer o el espacio
-            printf("Ingrese caracter%csticas:",161);
+            while (getchar() != '\n'); //se vacia el buffer o el espacio
+            printf("Ingrese caracter%csticas:", 161);
             getline(cin, tienda[i].caracteristicas);
         }
         break;
@@ -428,17 +428,19 @@ void eliminar()
         int l = i + 1;
         printf("\nREGISTRO %d ELIMINADO\n", l);
         tienda[i].status = "ELIMINADO";
-        
-        tienda[i].nart =0;
-        tienda[i].articulo = "\t--";
+
+        tienda[i].nart = 0;
+        tienda[i].articulo = "--";
         tienda[i].year = 0;
-        tienda[i].descripcion="--\t";
-        tienda[i].genero="--\t";
-        tienda[i].clasificacion="--\t";
+        tienda[i].descripcion = "--";
+        tienda[i].genero = "--";
+        tienda[i].clasificacion = "--";
         tienda[i].caracteristicas = "--\t";
-        tienda[i].consola="--";
+        tienda[i].consola = "--";
         tienda[i].unidades = 0;
-        tienda[i].precio=0;
+        tienda[i].precio = 0;
+        tienda[i].impuesto = 0;
+        tienda[i].total = 0;
     }
 }
 
@@ -460,46 +462,51 @@ void archivos()
         exit(1);
     }
 
-    file << "ARTICULO" << "\t";
-    file << "NOMBRE" << "\t";
-    file << "YEAR" << "\t";
-    file << "DESCRIPCION" << "\t" << "\t";
-    file << "GENERO" << "\t";
-    file << "CLASIFICACION" << "\t" << "\t";
-    file << "CARACTERISTICAS" << "\t" << "\t";
+    file << "ARTICULO" << "\t" << "\t";
+    file << "NOMBRE" << "\t" << "\t";
+    file << "YEAR" << "\t" << "\t";
+    file << "DESCRIPCION" << "\t";
+    file << "GENERO" << "\t" << "\t";
+    file << "CLASIFICACION" << "\t";
+    file << "CARACTERISTICAS" << "\t";
     file << "CONSOLA" << "\t" << "\t";
     file << "UNIDADES" << "\t" << "\t";
-    file << "PRECIO" << "\t" << "\t";
-    file << "STATUS" << "\n";
+    file << "PRECIO  UNITARIO" << "\t";
+    file << "IMPUESTO" << "\t" << "\t";
+    file << "PRECIO IVA" << "\t" << "\t";
+    file << "STATUS" << "\t" <<"\n";
 
     for (int i = 0; i < alta; i++)
     {
-        
-      
-            texto = tienda[i].nart;
-            file << texto << "\t";
-            texto2 = tienda[i].articulo;
-            file << texto2 << "\t" << "\t";
-            texto = tienda[i].year;
-            file << texto << "\t";
-            texto2 = tienda[i].descripcion;
-            file << texto2 << "\t" << "\t";
-            texto2 = tienda[i].genero;
-            file << texto2 << "\t" << "\t";
-            texto2 = tienda[i].clasificacion;
-            file << texto2 << "\t" << "\t";
-            texto2 = tienda[i].caracteristicas;
-            file << texto2 << "\t" << "\t";
-            texto2 = tienda[i].consola;
-            file << texto2 << "\t" << "\t";
-            texto = tienda[i].unidades;
-            file << texto << "\t";
-            texto3 = tienda[i].precio;
-            file << texto3 << "\t" << "\t";
-            texto2 = tienda[i].status;
-            file << texto2 << "\t" << "\n";
-        }
+
+        texto = tienda[i].nart;
+        file << texto << "\t" << "\t";
+        texto2 = tienda[i].articulo;
+        file << texto2 << "\t" << "\t";
+        texto = tienda[i].year;
+        file << texto << "\t" << "\t";
+        texto2 = tienda[i].descripcion;
+        file << texto2 << "\t" << "\t" ;
+        texto2 = tienda[i].genero;
+        file << texto2 << "\t" << "\t";
+        texto2 = tienda[i].clasificacion;
+        file << texto2 << "\t" << "\t";
+        texto2 = tienda[i].caracteristicas;
+        file << texto2 << "\t" << "\t";
+        texto2 = tienda[i].consola;
+        file << texto2 << "\t" << "\t" ;
+        texto = tienda[i].unidades;
+        file << texto << "\t" << "\t";
+        texto3 = tienda[i].precio;
+        file << texto3 << "\t" << "\t";
+        texto3 = tienda[i].impuesto;
+        file << texto3 << "\t" << "\t";
+        texto3 = tienda[i].total;
+        file << texto3 << "\t" << "\t";
+        texto2 = tienda[i].status;
+        file << texto2 << "\t" << "\n";
+    }
 
 
-        file.close();
+    file.close();
 }
